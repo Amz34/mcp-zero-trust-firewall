@@ -8,9 +8,9 @@ version = "1.0.0"
 description = "Enterprise Zero-Trust MCP Proxy & Prompt Injection Firewall. Neutralizes payload hijacking, token theft, and vendor upsell context taxes (Notion, Slack, Jira, GitHub)."
 readme = "README.md"
 requires-python = ">=3.10"
-license = {text = "Apache-2.0"}
+license = {text = "MIT"}
 authors = [
-    {name = "Shubham Sahoo", email = "shubhamsahoo.dev@gmail.com"}
+    {name = "Amz34"}
 ]
 keywords = [
     "mcp",
@@ -26,7 +26,7 @@ classifiers = [
     "Development Status :: 5 - Production/Stable",
     "Intended Audience :: Developers",
     "Intended Audience :: Information Technology",
-    "License :: OSI Approved :: Apache Software License",
+    "License :: OSI Approved :: MIT License",
     "Programming Language :: Python :: 3",
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",

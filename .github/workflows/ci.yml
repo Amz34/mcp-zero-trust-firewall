@@ -27,8 +27,9 @@ jobs:
         pip install -r requirements.txt
         pip install -e .
 
-    - name: Run Pytest Suite
+    - name: Run Unittest & Pytest Suite
       run: |
+        python -m unittest discover -s tests -v
         pytest -v
 
     - name: Run Performance & Token Tax Benchmark

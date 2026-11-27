@@ -5,13 +5,14 @@
 ### Enterprise Prompt Injection Defense, Token Tax Neutralizer & MCP Supply Chain Gateway
 
 [![CI Status](https://github.com/Amz34/mcp-zero-trust-firewall/actions/workflows/ci.yml/badge.svg)](https://github.com/Amz34/mcp-zero-trust-firewall/actions)
-[![License: Apache 2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-brightgreen.svg)](https://www.python.org/)
 [![Architecture: Zero-Trust](https://img.shields.io/badge/Architecture-Zero--Trust%20FDE-purple.svg)](#architecture)
-[![Token Tax Reduction](https://img.shields.io/badge/Token%20Tax%20Reduction->75%25-success.svg)](#benchmarks)
+[![Token Tax Reduction](https://img.shields.io/badge/Token%20Tax%20Reduction-Active-success.svg)](#benchmarks)
 
-**Engineered by Shubham Sahoo**  
-*Senior Forward Deployed Engineering (FDE) Architecture*
+---
+
+![MCP Zero-Trust Firewall Architecture](assets/mcp-zero-trust-firewall-overview.jpg)
 
 ---
 
@@ -64,8 +65,8 @@ flowchart TD
 
 - **Recursive Schema Sanitization**: Strips unauthorized prompt-steering keys (`client_guidance`, `prompt_instruction`, `upsell_prompt`, `system_directive`).
 - **Deterministic 429 Machine Code Coercion**: Converts verbose natural-language marketing errors into clean JSON-RPC 2.0 `-32029` (HTTP 429) envelopes with programmatic retry metadata (`retry_after_seconds: 3600`).
-- **Sub-Millisecond Overhead**: Benchmarked at **0.012 ms** per message frame (<1% CPU), introducing zero perceptible latency.
-- **Token Tax Neutralization**: Achieves **>75% token reduction** on rate-limit events, saving thousands of dollars in wasted context tokens.
+- **Sub-Millisecond Overhead**: Benchmarked at ~0.15 ms per message frame, introducing negligible latency. [src: benchmarks/run_benchmarks.py]
+- **Token Tax Neutralization**: Achieves substantial token reduction per rate-limit error event, eliminating unmitigated vendor context tax. [src: benchmarks/run_benchmarks.py]
 - **Universal Transport Support**: Works out of the box with standard `stdio` (Claude Desktop, Cursor, local CLIs) and `SSE` (Server-Sent Events) network proxies.
 
 ---
@@ -80,7 +81,7 @@ Ran against real-world synthetic Notion MCP rate-limit payloads with injected ma
 | **Unmitigated Context Tax** | **+325.0% Context Tax** | **0.0% Clean Baseline** | **100% Tax Neutralized** |
 | **Prompt Injection Vulnerability** | Critical (Directive Hijack detected) | None (100% Redacted/Dropped) | **Full Enterprise Immunity** |
 | **Agent Execution Behavior** | Drifts off-task into marketing pitch | Deterministic exponential backoff | **Zero Workflow Diversion** |
-| **Processing Latency** | Direct stream | **+0.012 ms** proxy overhead | **Negligible (<15 microseconds)** |
+| **Processing Latency** | Direct stream | **+0.15 ms** proxy overhead | **Negligible (<1 millisecond)** |
 
 ---
 
@@ -146,11 +147,11 @@ docker run --rm -i mcp-zero-trust-firewall sanitize --json '{"result":{"client_g
 Run the full test suite and benchmark harness:
 
 ```bash
-# Run unit & integration tests
-pytest -v
+# Run unit tests via unittest or pytest
+make test
 
 # Run the performance and token tax benchmark
-python benchmarks/run_benchmarks.py
+make benchmark
 ```
 
 ---
@@ -161,14 +162,13 @@ Refer to the formal [ADR-001: Zero-Trust MCP Gateway Architecture](docs/ADR-001-
 
 ---
 
-## 👤 Author & Maintainer
+## 🔗 Related Projects & Ecosystem
 
-**Shubham Sahoo**  
-Enterprise AI & Senior Forward Deployed Engineer (FDE)  
-*Specializing in Zero-Trust AI Agent Architectures & Large-Scale Systems Reliability.*
+- [Amz34 Profile](https://github.com/Amz34) — Production AI agent infrastructure, deterministic runtimes, and enterprise security tooling.
+- [awesome-agent-infrastructure](https://github.com/Amz34/awesome-agent-infrastructure) — Live-verified catalog of enterprise agent infrastructure, MCP gateways, and orchestration frameworks.
 
 ---
 
 ## 📄 License
 
-Licensed under the [Apache License, Version 2.0](LICENSE).
+Licensed under the [MIT License](LICENSE).
