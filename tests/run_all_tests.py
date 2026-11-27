@@ -9,6 +9,12 @@ from tests.test_detector import test_detect_notion_upsell, test_detect_directive
 from tests.test_sanitizer import test_strip_banned_guidance_keys, test_redact_upsell_in_strings
 from tests.test_coercer import test_coerce_paywall_disguised_error, test_ignore_normal_errors
 from tests.test_telemetry import test_telemetry_reduction_calculation
+from tests.test_edge_cases import (
+    test_deeply_nested_payload,
+    test_adversarial_spacing_and_casing,
+    test_malformed_and_empty_payloads,
+    test_large_payload_performance
+)
 
 def run():
     tests = [
@@ -20,6 +26,10 @@ def run():
         ("test_coerce_paywall_disguised_error", test_coerce_paywall_disguised_error),
         ("test_ignore_normal_errors", test_ignore_normal_errors),
         ("test_telemetry_reduction_calculation", test_telemetry_reduction_calculation),
+        ("test_deeply_nested_payload", test_deeply_nested_payload),
+        ("test_adversarial_spacing_and_casing", test_adversarial_spacing_and_casing),
+        ("test_malformed_and_empty_payloads", test_malformed_and_empty_payloads),
+        ("test_large_payload_performance", test_large_payload_performance),
     ]
 
     print("==================================================")
