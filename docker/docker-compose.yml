@@ -1,0 +1,15 @@
+version: "3.8"
+
+services:
+  mcp-firewall:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    container_name: mcp-zero-trust-firewall
+    restart: unless-stopped
+    environment:
+      - STRICT_SCHEMA_ENFORCEMENT=true
+      - COERCE_PAYWALLS_TO_429=true
+      - REDACTION_PLACEHOLDER=[REDACTED_PROMOTIONAL_INJECTION]
+    stdin_open: true
+    tty: true

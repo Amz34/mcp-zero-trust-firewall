@@ -1,0 +1,57 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mcp-zero-trust-firewall"
+version = "1.0.0"
+description = "Enterprise Zero-Trust MCP Proxy & Prompt Injection Firewall. Neutralizes payload hijacking, token theft, and vendor upsell context taxes (Notion, Slack, Jira, GitHub)."
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "Apache-2.0"}
+authors = [
+    {name = "Shubham Sahoo", email = "shubhamsahoo.dev@gmail.com"}
+]
+keywords = [
+    "mcp",
+    "model-context-protocol",
+    "prompt-injection",
+    "zero-trust",
+    "ai-agent-security",
+    "token-optimization",
+    "firewall",
+    "notion"
+]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Information Technology",
+    "License :: OSI Approved :: Apache Software License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Security",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence"
+]
+dependencies = [
+    "pydantic>=2.0.0",
+]
+
+[project.optional-dependencies]
+sse = [
+    "httpx>=0.25.0",
+    "uvicorn>=0.23.0",
+    "starlette>=0.31.0"
+]
+dev = [
+    "pytest>=7.4.0",
+    "pytest-asyncio>=0.21.0"
+]
+
+[project.scripts]
+mcp-firewall = "mcp_firewall.cli:main"
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
